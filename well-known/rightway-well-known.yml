@@ -1,0 +1,46 @@
+generated: '2026-08-02'
+method: probed
+source: live probes of every Rightway host in apis.yml
+summary: >-
+  No /.well-known/ discovery document is published on any Rightway host. The
+  marketing site (www.rightwayhealthcare.com) is a Nuxt application whose
+  catch-all returns a JSON 404 envelope for every unmatched path, and the
+  member API host (api.rightwayhealthcare.com) returns an empty HTTP 404 for
+  every /.well-known/ path probed. This is a recorded negative result — no
+  WellKnown, SecurityTxt or APICatalog pointer is wired in apis.yml because
+  nothing was found.
+hosts:
+- host: https://www.rightwayhealthcare.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://api.rightwayhealthcare.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+related:
+  robots_txt:
+    url: https://www.rightwayhealthcare.com/robots.txt
+    status: 200
+    note: >-
+      robots.txt explicitly Allows /llms.txt and /llms-full.txt, but both paths
+      return 404 — the allow rules are ahead of the files.
+  sitemap:
+    url: https://www.rightwayhealthcare.com/sitemap_index.xml
+    status: 200

@@ -1,23 +1,114 @@
 aid: rightway
 name: Rightway
-description: 'Rightway is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Rightway Healthcare is a New York-based healthcare navigation and pharmacy
+  benefit management (PBM) company founded by Jordan Feldman and Dr. Theodore Feldman.
+  It pairs a clinical care-navigation service — licensed pharmacists, nurses and care
+  guides reachable by phone and in-app — with a fully transparent, 100% pass-through
+  PBM that earns revenue from a single administrative fee rather than rebate spread.
+  Rightway serves employers, health systems and public-sector plans covering roughly
+  three million members, with named clients including Tyson Foods, TikTok and Zoom,
+  and ships member-facing iOS, Android and web apps backed by a private mobile API.
+  The company is HITRUST CSF certified and SOC 2 attested. It publishes no public
+  developer program, API documentation or machine-readable API contract as of this
+  profiling pass.'
 url: https://raw.githubusercontent.com/api-evangelist/rightway/refs/heads/main/apis.yml
+image: https://cdn.sanity.io/images/c67aqxu5/production/8ebd5e736e6fed503510282e4032d6a90c9041e5-2400x1260.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pass
 specificationVersion: '0.20'
 created: '2026-08-02'
 modified: '2026-08-02'
 tags:
 - Company
-apis: []
+- Healthcare
+- Pharmacy Benefits
+- PBM
+- Care Navigation
+- Health Insurance
+- Employee Benefits
+- Digital Health
+- HIPAA
+apis:
+- aid: rightway:member-api
+  name: Rightway Member API
+  description: 'Undocumented private HTTP/JSON API at api.rightwayhealthcare.com that
+    backs the Rightway member mobile apps (iOS/Android) and the member web app at
+    member.rightwayhealthcare.com. The host is publicly reachable and answers unauthenticated
+    JSON on / (minimum supported app versions) and /health (dependency readiness),
+    but Rightway publishes no developer portal, no API reference and no OpenAPI/GraphQL
+    contract; all functional endpoints are member-authenticated. Recorded here from
+    direct probing, not from provider documentation.'
+  humanURL: https://member.rightwayhealthcare.com/
+  baseURL: https://api.rightwayhealthcare.com
+  x-status: undocumented
+  x-evidence:
+    fetched: '2026-08-02'
+    probes:
+    - url: https://api.rightwayhealthcare.com/
+      http_status: 200
+      content_type: application/json; charset=utf-8
+    - url: https://api.rightwayhealthcare.com/health
+      http_status: 200
+      content_type: application/json; charset=utf-8
+    - url: https://api.rightwayhealthcare.com/openapi.json
+      http_status: 404
+    - url: https://api.rightwayhealthcare.com/swagger.json
+      http_status: 404
+    - url: https://api.rightwayhealthcare.com/graphql
+      http_status: 500
+  tags:
+  - Healthcare
+  - Care Navigation
+  - Mobile
+  properties:
+  - type: Website
+    url: https://member.rightwayhealthcare.com/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/rightway-domain-security.yml
+- type: Conformance
+  url: conformance/rightway-conformance.yml
+- type: Lifecycle
+  url: lifecycle/rightway-lifecycle.yml
+- type: LLMsTxt
+  url: llms/rightway-llms.txt
 - type: Website
+  url: https://www.rightwayhealthcare.com/
+- type: Blog
+  url: https://www.rightwayhealthcare.com/resources/blog
+- type: Support
+  url: https://www.rightwayhealthcare.com/contact-us
+- type: HelpCenter
+  url: https://www.rightwayhealthcare.com/members/get-help
+- type: Login
+  url: https://member.rightwayhealthcare.com/
+- type: TermsOfService
+  url: https://www.rightwayhealthcare.com/terms-services
+- type: PrivacyPolicy
+  url: https://www.rightwayhealthcare.com/privacy-policy
+- type: Compliance
+  url: https://www.rightwayhealthcare.com/compliance
+- type: StatusPage
+  url: https://status.rightwayhealthcare.com/
+- type: GitHubOrganization
+  url: https://github.com/roadmaphealthcare
+- type: Careers
+  url: https://www.rightwayhealthcare.com/careers
+- type: Press
+  url: https://www.rightwayhealthcare.com/press
+- type: LinkedIn
+  url: https://www.linkedin.com/company/rightway-healthcare
+- type: SecondaryMarket
   url: https://forgeglobal.com/rightway_stock/
+x-enrichment:
+  date: '2026-08-02'
+  status: enriched
+  artifacts_added: 5
+  pass: local-v1

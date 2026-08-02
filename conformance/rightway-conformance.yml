@@ -1,0 +1,66 @@
+generated: '2026-08-02'
+method: searched
+source: https://www.rightwayhealthcare.com/press/rightway-achieves-hitrust-csf-r-soc-2-certification-delivering-the-highest
+docs: https://www.rightwayhealthcare.com/compliance
+summary: >-
+  Rightway's published conformance posture is regulatory and certification-based,
+  not API-technical. The company announced HITRUST CSF certification together with
+  SOC 2 in May 2022 covering its care navigation and PBM solutions, operates as a
+  HIPAA-regulated handler of protected health information, and publishes state PBM
+  regulatory filings. No API-level standard (OAuth 2.0, OpenID Connect, FHIR, RFC
+  9457, SCIM, OData) can be asserted because Rightway publishes no machine-readable
+  API contract and no developer documentation.
+standards:
+- id: hitrust-csf
+  conforms: true
+  evidence: >-
+    Press release "Rightway Achieves HITRUST CSF SOC 2 Certification" (2026 site
+    copy; originally announced 2022-05-27) states Rightway's care navigation and
+    PBM solutions met HITRUST CSF Assurance Program requirements.
+  source: https://www.rightwayhealthcare.com/press/rightway-achieves-hitrust-csf-r-soc-2-certification-delivering-the-highest
+  note: HITRUST CSF version and assessor are not named in the published release.
+- id: soc2
+  conforms: true
+  evidence: SOC 2 named alongside HITRUST CSF in the same certification announcement.
+  source: https://www.rightwayhealthcare.com/press/rightway-achieves-hitrust-csf-r-soc-2-certification-delivering-the-highest
+  note: SOC 2 report type (Type I vs Type II) is not stated publicly.
+- id: hipaa
+  conforms: true
+  evidence: >-
+    Rightway is a PBM and care-navigation provider handling PHI for employer and
+    health-system plans; the site publishes an Informed Consent notice and a
+    privacy policy covering protected health information.
+  source: https://www.rightwayhealthcare.com/privacy-policy
+- id: state-pbm-regulatory-reporting
+  conforms: true
+  evidence: >-
+    /compliance publishes downloadable State Regulatory Requirements filings for
+    Iowa pharmacies (quarterly 2025-2026 retail and non-retail reports, NADAC
+    pricing data).
+  source: https://www.rightwayhealthcare.com/compliance
+- id: oauth2
+  conforms: false
+  evidence: No OpenAPI securitySchemes and no published OAuth documentation.
+- id: openid-connect
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on every Rightway host.
+- id: fhir-r4
+  conforms: false
+  evidence: >-
+    No FHIR endpoint, capability statement or resource surface published; Rightway
+    is not a payer-facing CMS Interoperability (CMS-9115-F) regulated entity that
+    publishes a Patient Access API.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    api.rightwayhealthcare.com returns bare application/json bodies and empty 404s;
+    no application/problem+json observed.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on www and api hosts.
+x-observations:
+  trust_portal_hostname: >-
+    trust.rightwayhealthcare.com resolves via CNAME to
+    rightwayhealthcare.portals.safebase.io, but the SafeBase portal returns HTTP
+    404 — a trust center hostname is provisioned but not publicly serving, so no
+    TrustCenter artifact was written.
