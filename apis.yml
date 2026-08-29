@@ -12,6 +12,17 @@ description: 'Rightway Healthcare is a New York-based healthcare navigation and 
   developer program, API documentation or machine-readable API contract as of this
   profiling pass.'
 url: https://raw.githubusercontent.com/api-evangelist/rightway/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.sanity.io/images/c67aqxu5/production/8ebd5e736e6fed503510282e4032d6a90c9041e5-2400x1260.png
 x-type: company
 x-source: harvest:secondary-market
