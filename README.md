@@ -64,32 +64,90 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Rightway Healthcare is a New York-based healthcare navigation and pharmacy benefit management (PBM) company. It pairs clinical care navigation — licensed pharmacists, nurses and care guides reachable by phone and in-app — with a fully transparent, 100% pass-through PBM whose revenue comes from a single administrative fee rather than rebate spread. Rightway serves employers, health systems and public-sector plans covering roughly three million members.
+Rightway Healthcare is a New York-based healthcare navigation and pharmacy benefit management (PBM) company founded by Jordan Feldman and Dr. Theodore Feldman. It pairs a clinical care-navigation service — licensed pharmacists, nurses and care guides reachable by phone and in-app — with a fully transparent, 100% pass-through PBM that earns revenue from a single administrative fee rather than rebate spread. Rightway serves employers, health systems and public-sector plans covering roughly three million members, with named clients including Tyson Foods, TikTok and Zoom, and ships member-facing iOS, Android and web apps backed by a private mobile API. The company is HITRUST CSF certified and SOC 2 attested. It publishes no public developer program, API documentation or machine-readable API contract as of this profiling pass.
 
-- Website — https://www.rightwayhealthcare.com/
-- Member portal — https://member.rightwayhealthcare.com/
-- Status — https://status.rightwayhealthcare.com/
-- GitHub — https://github.com/roadmaphealthcare
-- Secondary market listing — https://forgeglobal.com/rightway_stock/
+**Areas:** Company · Healthcare · Pharmacy Benefits · PBM · Care Navigation · Health Insurance · Employee Benefits · Digital Health · HIPAA
 
-## API posture
+## Rightway on APIs.io
 
-Rightway publishes **no public developer program**: no developer portal, no API
-documentation, no OpenAPI/GraphQL/AsyncAPI contract, no SDKs, no MCP server and no
-A2A agent card. Contract discovery was run against every host on 2026-08-02 and every
-probe missed.
+Everything profiled for Rightway is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/rightway/](https://apis.io/providers/rightway/)** — or go straight to one of the APIs or properties below.
 
-One real API surface was observed and recorded: `api.rightwayhealthcare.com`, the
-undocumented private HTTP/JSON backend for the Rightway member mobile and web apps.
-It answers unauthenticated JSON on `/` (minimum supported client versions) and
-`/health` (dependency readiness); everything functional is member-authenticated.
+### APIs (1)
 
-## Artifacts
+- [Rightway Member API](https://apis.io/apis/rightway/member-api/) — Undocumented private HTTP/JSON API at api.rightwayhealthcare.com that backs the Rightway member mobile apps (iOS/Android) and the member web app at…
 
-| Artifact | File | Method |
-|---|---|---|
-| Conformance | `conformance/rightway-conformance.yml` | searched |
-| Lifecycle / status page | `lifecycle/rightway-lifecycle.yml` | searched |
-| llms.txt | `llms/rightway-llms.txt` | generated |
-| Domain security | `security/rightway-domain-security.yml` | probed |
-| Well-known probe results | `well-known/rightway-well-known.yml` | probed (all misses) |
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Rightway Domain Security](https://apis.io/security/rightway/rightway-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.rightwayhealthcare.com/)
+- [Support](https://www.rightwayhealthcare.com/contact-us)
+- [Blog](https://www.rightwayhealthcare.com/resources/blog)
+- [Compliance](https://www.rightwayhealthcare.com/compliance)
+- [Terms of service](https://www.rightwayhealthcare.com/terms-services)
+- [Privacy policy](https://www.rightwayhealthcare.com/privacy-policy)
+- [GitHub](https://github.com/roadmaphealthcare)
+- [Status](https://status.rightwayhealthcare.com/)
+
+## API Evangelist rating
+
+**Kin Score 22.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 74.1 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 35.5 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 27.2** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/rightway/](https://apis.io/providers/rightway/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Rightway: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/rightway/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
